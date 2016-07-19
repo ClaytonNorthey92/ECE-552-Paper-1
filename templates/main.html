@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h2>{{ page_name }}</h2>
+    <h2>the page "{{ page_name }}" was requested by {{ ip }}</h2>
     <form method="post">
       {% for item in ['A1', 'A2', 'A3'] %}
         <div>
@@ -17,4 +17,7 @@
       <button type="submit">Submit</button>
     </form>
   </body>
+  <script>
+
+  </script>
 </html>

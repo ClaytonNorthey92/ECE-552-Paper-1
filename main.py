@@ -34,7 +34,7 @@ def membership_function(value):
         'high': is_high(value)
     }
 
-@website.route('/page/<page_name>', methods=['GET', 'POST'])
+@website.route('/<page_name>', methods=['GET', 'POST'])
 def index(page_name):
     values_of_interest = {}
     givens = {
@@ -46,7 +46,8 @@ def index(page_name):
         for value in ['A1', 'A2', 'A3']:
             values_of_interest[value] = membership_function(int(request.form[value]))
             givens[value] = request.form[value]
-    return render_template('main.html', page_name=page_name, values_of_interest=values_of_interest, givens=givens)
+    return render_template('main.html', page_name=page_name, values_of_interest=values_of_interest,
+                           givens=givens, ip=request.remote_addr)
 
 if __name__=='__main__':
     website.run(debug=True);
