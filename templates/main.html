@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>{{ page_name }}</h2>
+    <form method="post">
+      {% for item in ['A1', 'A2', 'A3'] %}
+        <div>
+          <label>{{ item }}</label>
+          <input name="{{ item }}" value="{{ givens[item] }}"/>
+          {% if values_of_interest[item] %}
+            <span>High: {{ values_of_interest[item]['high'] }}</span>
+            <span>Medium: {{ values_of_interest[item]['medium'] }}</span>
+            <span>Low: {{ values_of_interest[item]['low'] }}</span>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
